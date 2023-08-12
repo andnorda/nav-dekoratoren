@@ -8,9 +8,9 @@ export const postMessageToApp = (event: string, payload: any) => {
 };
 
 export const msgSafetyCheck = (message: MessageEvent) => {
-    const { origin, source } = message;
-    // Only allow messages from own window
-    if (window.location.href.indexOf(origin) === 0 && source === window) {
+    const { origin } = message;
+    // Only allow messages from own location
+    if (window.location.href.indexOf(origin) === 0) {
         return true;
     }
     return false;
